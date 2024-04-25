@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- alpine js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js"></script>
+    <!-- font awesome cdn -->
+    <script src="https://use.fontawesome.com/1039f80695.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="bg-blue-50">
+    <div class="flex bg-gray-300" x-data="{ isSidebarExpanded: true}">
+        <aside class="flex flex-col text-gray-300 bg-gray-700 transition-all duration-300 ease-in-out" :class="isSidebarExpanded ? 'width-64' : 'width-20'" id="sidebar">
+          <a href="#" class="h-20 flex items-center px-4 bg-gray-700 hover:text-gray-100 hover:bg-opacity-50 focus:outline-none focus:text-gray-100 focus:bg-opacity-50 overflow-hidden">
+            <img src="img/Logo.svg" alt="Logo" class="h-16">
+          </a>
+          <nav class="p-4 space-y-2 font-medium">
+            <a href="#" class="flex items-center h-10 px-3 text-white bg-orange-600 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class = "fa fa-home"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-edit"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Create Form</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-list"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Form List</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-eye"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">View Data</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-laptop"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Report</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-user"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">User Management</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-database"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Backup Database</span>
+            </a>
+            
+          </nav>
+          <div class="border-t border-gray-700 p-4 font-medium mt-auto">
+            <a href="#" class="flex items-center h-10 px-3 hover:text-gray-100 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-gear"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Settings</span>
+            </a>
+          </div>
+        </aside>
+        <div class="flex-1 flex flex-col ">
+          <header class="h-20 flex items-center px-6 bg-white justify-between">
+            <button class="p-2 -ml-2 mr-2" @click="isSidebarExpanded = !isSidebarExpanded" id="toggleBtn">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="6" x2="14" y2="6" />
+                <line x1="4" y1="18" x2="14" y2="18" />
+                <path d="M4 12h17l-3 -3m0 6l3 -3" />
+              </svg>
+            </button>
+            <!-- add a search box -->
+            <div class="flex items-center">
+              <div class="relative">
+                <input type="text" class="bg-gray-100 w-96 h-10 px-5 pr-10 rounded-md text-sm focus:outline-none" placeholder="Search...">
+                <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div> 
+            <!-- add a dropdown containing logout and edit profile -->
+            <div class="relative">
+              <button class="flex items-center mr-0 border border-gray-300 rounded-full w-8 h-8 justify-center hover:bg-red-600 hover:text-white hover:cursor-pointer" id="header-dropdown-btn">
+                <i class="fa fa-user"></i>
+              </button>
+              <div class="absolute border border-gray-200 right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-10 hidden" id="header-dropdown">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-red-600 hover:text-white">Edit Profile</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-red-600 hover:text-white">Logout</a>
+                
+              </div>
+            </div>            
+          </header>
+          <main class="flex-1 p-6">
+            <div class="justify-center flex">
+              <div class="bg-white border rounded-lg shadow-lg my-5 mx-10 p-10 w-full">
+                <div class="flex mb-2 justify-between">
+                    <h6 class="text-xl font-bold mb-2 text-left">Deployed Forms</h6>  
+                    <!-- add an orange button with a plus sign and "Add user" text -->
+                    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"><i class="mr-3 fa fa-plus"></i>Add User</button>
+                  </div>  
+                  <table class="table-striped w-3/4 mb-5">
+                    <thead>
+                        <tr>
+                            <th class="text-left">S No.</th>
+                            <th class="text-left">Username</th>
+                            <th class="text-left">User Type</th>
+                            <th class="text-left">Status</th>
+                            <th class="text-left">Edit/Delete</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Bibek Pandey</td>
+                            <td>Admin</td>
+                            <td><i class="fa fa-circle text-green-500 mr-2"></i>Active</td>
+                            <td><a href="#">
+                                <button class="h-10 w-10 bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-2 rounded rounded-full"><i class="fa fa-edit"></i></button>
+                                <button class="w-10 h-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded rounded-full"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Bibek Pandey</td>
+                            <td>Admin</td>
+                            <td><i class="fa fa-circle text-orange-300 mr-2"></i>Inactive</td>
+                            <td><a href="#">
+                                <button class="h-10 w-10 bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-2 rounded rounded-full"><i class="fa fa-edit"></i></button>
+                                <button class="w-10 h-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded rounded-full"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                  </table>
+              </div>
+            </div>       
+                
+            </main>
+        </div>
+      </div>
+      <script>
+        const headerDropdownBtn = document.getElementById('header-dropdown-btn');
+        const headerDropdown = document.getElementById('header-dropdown');
+        headerDropdownBtn.addEventListener('click', () => {
+          headerDropdown.classList.toggle('hidden');
+        });
+
+      </script>
+
+</body>
+</html>

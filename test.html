@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Three-Way Slider</title>
+  <style>
+    /* CSS for the slider */
+    .slider-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100px;
+      margin-top: 20px;
+    }
+
+    .slider-option {
+      width: 100px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .slider-option.active {
+      background-color: rgb(234, 88, 12);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider-option active" id="province" onclick="slideTo('province')">Province</div>
+    <div class="slider-option" id="district" onclick="slideTo('district')">District</div>
+    <div class="slider-option" id="municipality" onclick="slideTo('municipality')">Municipality</div>
+  </div>
+
+  <script>
+    function slideTo(option) {
+      // Get all slider options
+      var options = document.querySelectorAll('.slider-option');
+
+      // Remove 'active' class from all options
+      options.forEach(function(opt) {
+        opt.classList.remove('active');
+      });
+
+      // Add 'active' class to the clicked option
+      document.getElementById(option).classList.add('active');
+
+      // You can add logic here to perform actions based on the selected option
+      // For example: Load data specific to the selected option
+      // For demonstration purposes, let's log the selected option to the console
+      console.log('Selected Option:', option);
+    }
+  </script>
+</body>
+</html>

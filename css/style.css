@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --bg-color: #33404F;
+    --primary-color: #E7322E;
+    --secondary-color: #F37027;
+    --light-blue: #EFF2F5;
+    --light-gray: #DADADA;
+  }
+  
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+}
+
+.width-20{
+    width: 5rem;
+}
+
+.min-h {
+    min-height: 28.7em;
+}
+
+.display-inline {
+    display: inline;
+}
+
+table {
+    width: 100%;
+    border: 1px solid lightgrey;
+}
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.datatable-top, .datatable-bottom {
+    padding: 1px !important;
+    margin: 0.5em 0;
+}
+
+.datatable-selector {
+    padding: 6px 30px 10px 5px !important;
+}
+
+.modal {
+    z-index: 1;
+}
+
+.h-95vh {
+    height: 95vh;
+    overflow-y: scroll;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-link {
+    background-color: rgb(128 128 128 / 10%);
+    border: 1px solid rgb(128 128 128 / 20%);
+}
+
+.tab-link:hover {
+    background-color: rgb(128 128 128 / 30%);
+}
+
+.tab-link.active {
+    background-color: rgb(55 65 81 / 75%);
+    color: snow;
+}
+
+.tab-link svg {
+    color: snow;
+}
+
+@media only screen and (max-width: 600px) {
+    .width-20{
+        width: 0px !important;
+    }
+  }
+.width-64{
+    width: 16rem;
+}
+
+/* banded table with even rows in blue color */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--light-blue);
+
+}
+.table-striped thead tr th{
+    border: 1px solid var(--light-gray);
+    padding:5px;
+}
+.table-striped tbody tr td{
+    border: 1px solid var(--light-gray);
+    padding:5px 10px;
+}
+
+html {
+    --scrollbarBG: #0000;
+    --thumbBG: #b2b2b2;
+}
+.content{
+    width:100%;
+    max-width:100%;
+    overflow:scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+.content::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+.content::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+}
+
+.opacity-0{
+    opacity:0;
+}
+.nav-item{
+    opacity:100;
+    transition: all 0.5s ease-in-out;
+}
+.sidebar-is-mobile{
+    position:fixed;
+    z-index:999;
+    height:100vh;
+
+}
+
+
+/* =========================================================== */
+/* ===========  Progress to Prosperity Scorecard  ============ */
+/* =========================================================== */
+
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.set-size {
+  font-size: 10em;
+}
+.set-size-2 {
+    font-size: 7em;
+  }
+.set-size-3{
+    font-size: 3em;
+}
+.charts-container:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.pie-wrapper {
+  aspect-ratio: 1/1;;  
+  height: 1em;
+  width: 1em;
+  float: left;
+  /* margin: 15px; */
+  position: relative;
+}
+.pie-wrapper:nth-child(3n+1) {
+  clear: both;
+}
+.pie-wrapper .pie {
+  height: 100%;
+  width: 100%;
+  clip: rect(0, 1em, 1em, 0.5em);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.pie-wrapper .pie .half-circle {
+  height: 100%;
+  width: 100%;
+  border: 0.1em solid #3498db;
+  border-radius: 50%;
+  clip: rect(0, 0.5em, 1em, 0);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.pie-wrapper .label {
+  background: #34495e;
+  border-radius: 50%;
+  bottom: 0.4em;
+  color: #ecf0f1;
+  cursor: default;
+  display: block;
+  font-size: 0.25em;
+  left: 0.4em;
+  line-height: 2.8em;
+  position: absolute;
+  right: 0.4em;
+  text-align: center;
+  top: 0.4em;
+}
+.pie-wrapper .label .smaller {
+  color: #bdc3c7;
+  font-size: 0.45em;
+  padding-bottom: 20px;
+  vertical-align: super;
+}
+.pie-wrapper .shadow {
+  height: 100%;
+  width: 100%;
+  border: 0.1em solid #bdc3c7;
+  border-radius: 50%;
+}
+.pie-wrapper.style-2 .label {
+  background: none;
+  color: #7f8c8d;
+}
+.pie-wrapper.style-2 .label .smaller {
+  color: #bdc3c7;
+}
+.pie-wrapper.progress-45 .pie .half-circle {
+  border-color: #1abc9c;
+}
+.pie-wrapper.progress-45 .pie .left-side {
+  transform: rotate(162deg);
+}
+.pie-wrapper.progress-45 .pie .right-side {
+  display: none;
+}
+.pie-wrapper.progress-75 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+.pie-wrapper.progress-75 .pie .half-circle {
+  border-color: #8e44ad;
+}
+.pie-wrapper.progress-75 .pie .left-side {
+  transform: rotate(270deg);
+}
+.pie-wrapper.progress-75 .pie .right-side {
+  transform: rotate(180deg);
+}
+.pie-wrapper.progress-95 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+.pie-wrapper.progress-95 .pie .half-circle {
+  border-color: #e74c3c;
+}
+.pie-wrapper.progress-95 .pie .left-side {
+  transform: rotate(342deg);
+}
+.pie-wrapper.progress-95 .pie .right-side {
+  transform: rotate(180deg);
+}
+
+
+/* ==================================== */
+/* ===========  End of P2P  ============ */
+/* ==================================== */
+
+
+
+/* =========================================================== */
+/* ===========  3 way province, district, muni slider  ============ */
+/* =========================================================== */
+
+.slider-container {
+  width:fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ededed;
+  border-radius: 25px;
+  height: 50px;
+  border: 1px solid #dadada;
+  padding: 3px;
+
+}
+
+.slider-option {
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.slider-option.active {
+  background-color: rgb(234, 88, 12);
+  color: #fff;
+}

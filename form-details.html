@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Details</title>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- alpine js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js"></script>
+    <!-- font awesome cdn -->
+    <script src="https://use.fontawesome.com/1039f80695.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="bg-blue-50">
+    <div class="flex bg-gray-300" x-data="{ isSidebarExpanded: true}">
+        <aside class="flex flex-col text-gray-300 bg-gray-700 transition-all duration-300 ease-in-out" :class="isSidebarExpanded ? 'width-64' : 'width-20'" id="sidebar">
+          <a href="#" class="h-20 flex items-center px-4 bg-gray-700 hover:text-gray-100 hover:bg-opacity-50 focus:outline-none focus:text-gray-100 focus:bg-opacity-50 overflow-hidden">
+            <img src="img/Logo.svg" alt="Logo" class="h-16">
+          </a>
+          <nav class="p-4 space-y-2 font-medium">
+            <a href="#" class="flex items-center h-10 px-3 text-white bg-orange-600 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class = "fa fa-home"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-edit"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Create Form</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-list"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Form List</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-eye"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">View Data</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-laptop"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Report</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-user"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">User Management</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-database"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Backup Database</span>
+            </a>
+            
+          </nav>
+          <div class="border-t border-gray-700 p-4 font-medium mt-auto">
+            <a href="#" class="flex items-center h-10 px-3 hover:text-gray-100 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-gear"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Settings</span>
+            </a>
+          </div>
+        </aside>
+        <div class="flex-1 flex flex-col ">
+          <header class="h-20 flex items-center px-6 bg-white justify-between">
+            <button class="p-2 -ml-2 mr-2" @click="isSidebarExpanded = !isSidebarExpanded" id="toggleBtn">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="6" x2="14" y2="6" />
+                <line x1="4" y1="18" x2="14" y2="18" />
+                <path d="M4 12h17l-3 -3m0 6l3 -3" />
+              </svg>
+            </button>
+            <!-- add a search box -->
+            <div class="flex items-center">
+              <div class="relative">
+                <input type="text" class="bg-gray-100 w-96 h-10 px-5 pr-10 rounded-md text-sm focus:outline-none" placeholder="Search...">
+                <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div> 
+            <!-- add a dropdown containing logout and edit profile -->
+            <div class="relative">
+              <button class="flex items-center mr-0 border border-gray-300 rounded-full w-8 h-8 justify-center hover:bg-red-600 hover:text-white hover:cursor-pointer" id="header-dropdown-btn">
+                <i class="fa fa-user"></i>
+              </button>
+              <div class="absolute border border-gray-200 right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-10 hidden" id="header-dropdown">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-red-600 hover:text-white">Edit Profile</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-red-600 hover:text-white">Logout</a>
+                
+              </div>
+            </div>            
+          </header>
+          <main class="flex-1 p-6">
+            <div class="justify-center flex">
+              <div class="bg-white border rounded-lg shadow-lg my-5 mx-10 p-10 w-full">
+                  <h6 class="text-xl font-bold mb-2 text-left">Form Title</h6>
+                  <p class="text-sm text-gray-500 mb-10">The form  description text goes here. Please make sure that the description is not too long. </p>
+                  
+                  <!-- add a form with 2 input fields and a button -->
+                    <div class="border border-gray-200 rounded-lg p-5 mb-5">
+                        <!-- @csrf -->
+                            <div>
+                                <div class="flex rounded-md shadow-sm">
+                                    <span class="px-4 inline-flex items-center min-w-fit rounded-l-md border border-r-0 border-gray-400 bg-gray-50 text-sm font-bold text-gray-800 ">Section Title</span>
+                                    <input type="text" class="py-2 px-3 pr-11 block w-full border border-gray-400 rounded-r-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Title displayed on top of each section">
+                                </div>
+                            </div>
+
+                            <!-- add a line in the middle -->
+                            <div class="border-t border-gray-200 my-5"></div>
+
+
+                            <div class="mb-5">
+                                <label for="email" class="block mb-2 text-sm font-bold text-gray-700">Enter Question</label>
+                                <input type="email" name="email" id="email" placeholder="Enter your question here (ex. What is your name?)" class="border rounded rounded-md border-gray-400 p-2 w-full">
+                            </div>
+                        <!-- add a dropdown input field with "optional" and "mandatory"-->
+                            <div class="flex items-end flex-wrap mb-5">
+                                <div class="mb-3">
+                                    <label for="email" class="block mb-2 text-sm font-bold text-gray-700">Question Type</label>
+                                    <select name="email" id="email" class="border rounded rounded-md border-gray-400 p-2 w-72">
+                                        <option value="optional">Optional</option>
+                                        <option value="mandatory">Mandatory</option>
+                                    </select>
+                                </div>
+                                <div class="mx-5 mb-3 flex flex-col">
+                                    <div class="text-sm font-bold text-gray-700">Type of field</div>
+                                    <div class="h-12">Text</div>
+                                </div>
+                                <!-- add an input text field with the label "Field Name" -->
+                                <div class="mb-3 flex-1">
+                                    <label for="fieldName" class="block mb-2 text-sm font-bold text-gray-700">Field Name</label>
+                                    <input type="text" name="fieldName" id="fieldName" placeholder="Database Field name (in English)" class="border rounded rounded-md border-gray-400 p-2 w-72">
+                                </div>
+                                <!-- add a yellow button with text "Set Skip logic"-->
+                                <button class="bg-yellow-400 text-white mb-3 w-48 h-12 py-2 px-4 hover:bg-yellow-600 rounded float-right"><i class="mr-4 fa fa-code-fork"></i>Set Skip Logic</button>
+
+                                <!-- add a circular red button with a trashcan icon inside -->
+                                <button class="bg-red-600 text-white mb-3 mx-5 w-12 h-12 py-2 px-4 hover:bg-red-800 rounded rounded-full float-right"><i class="fa fa-trash"></i></button>
+                                
+                            </div>
+                            <!-- add a line in the middle -->
+                            <div class="border-t border-gray-200 my-5"></div>
+
+                            <!-- add an orange button with the words "Text" inside and the plus icon -->
+                            <div class="flex flex-wrap"> 
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Text</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Number</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Decimal</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Text Area</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Date</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Signature</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>QR Code</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Photo/File</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Single Selection</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Multiple Selection</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Dropdown</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>GPS</button>
+                            </div>
+                        </div>
+
+                    <div class="border border-gray-200 rounded-lg p-5 ">
+                        <!-- @csrf -->
+                            <div>
+                                <div class="flex rounded-md shadow-sm">
+                                    <span class="px-4 inline-flex items-center min-w-fit rounded-l-md border border-r-0 border-gray-400 bg-gray-50 text-sm font-bold text-gray-800 ">Section Title</span>
+                                    <input type="text" class="py-2 px-3 pr-11 block w-full border border-gray-400 rounded-r-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Title displayed on top of each section">
+                                </div>
+                            </div>
+
+                            <!-- add a line in the middle -->
+                            <div class="border-t border-gray-200 my-5"></div>
+
+
+                            <div class="mb-5">
+                                <label for="email" class="block mb-2 text-sm font-bold text-gray-700">Enter Question</label>
+                                <input type="email" name="email" id="email" placeholder="Enter your question here (ex. What is your name?)" class="border rounded rounded-md border-gray-400 p-2 w-full">
+                            </div>
+                        <!-- add a dropdown input field with "optional" and "mandatory"-->
+                            <div class="flex items-end flex-wrap mb-5">
+                                <div class="mb-3">
+                                    <label for="email" class="block mb-2 text-sm font-bold text-gray-700">Question Type</label>
+                                    <select name="email" id="email" class="border rounded rounded-md border-gray-400 p-2 w-72">
+                                        <option value="optional">Optional</option>
+                                        <option value="mandatory">Mandatory</option>
+                                    </select>
+                                </div>
+                                <div class="mx-5 mb-3 flex flex-col">
+                                    <div class="text-sm font-bold text-gray-700">Type of field</div>
+                                    <div class="h-12">Text</div>
+                                </div>
+                                <!-- add an input text field with the label "Field Name" -->
+                                <div class="mb-3 flex-1">
+                                    <label for="fieldName" class="block mb-2 text-sm font-bold text-gray-700">Field Name</label>
+                                    <input type="text" name="fieldName" id="fieldName" placeholder="Database Field name (in English)" class="border rounded rounded-md border-gray-400 p-2 w-72">
+                                </div>
+                                <!-- add a yellow button with text "Set Skip logic"-->
+                                <button class="bg-yellow-400 text-white w-48 h-12 mb-3 py-2 px-4 hover:bg-yellow-600 rounded float-right"><i class="mr-4 fa fa-code-fork"></i>Set Skip Logic</button>
+
+                                <!-- add a circular red button with a trashcan icon inside -->
+                                <button class="bg-red-600 text-white mx-5 w-12 h-12 mb-3 py-2 px-4 hover:bg-red-800 rounded rounded-full float-right"><i class="fa fa-trash"></i></button>
+                                
+                            </div>
+                            <!-- add a line in the middle -->
+                            <div class="border-t border-gray-200 my-5"></div>
+
+                            
+                            <!-- add a text input field with a red trashcan icon as its label. the trash icon is to the left of the input field -->
+                            <div class="flex items-center mb-3">
+                                <label for="option1" class="text-xl mx-5 text-red-600 hover:text-red-800 hover:cursor-pointer"><i class= "fa fa-trash"></i></label>
+                                <input type="text" name="option1" id="option1" placeholder="Option 1" class="border rounded rounded-md border-gray-400 p-2 w-full">
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <label for="option1" class="text-xl mx-5 text-red-600 hover:text-red-800 hover:cursor-pointer"><i class= "fa fa-trash"></i></label>
+                                <input type="text" name="option1" id="option1" placeholder="Option 1" class="border rounded rounded-md border-gray-400 p-2 w-full">
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <label for="option1" class="text-xl mx-5 text-red-600 hover:text-red-800 hover:cursor-pointer"><i class= "fa fa-trash"></i></label>
+                                <input type="text" name="option1" id="option1" placeholder="Option 1" class="border rounded rounded-md border-gray-400 p-2 w-full">
+                            </div>
+
+                            <!-- add a red border button with the text "Add Option" -->
+                            <div class="flex justify-end">
+                                <button class="bg-white text-red-600 w-48 h-12 py-2 px-4 hover:bg-red-100 border border-red-600 hover:border-red-800 rounded"><i class="mr-4 fa fa-plus"></i>Add Option</button>    
+                            </div>
+                            
+                            <div class="border-t border-gray-200 my-5"></div>
+                            <!-- add an orange button with the words "Text" inside and the plus icon -->
+                            <div class="flex flex-wrap"> 
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Text</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Number</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Decimal</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Text Area</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Date</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Signature</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>QR Code</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Photo/File</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Single Selection</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Multiple Selection</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>Dropdown</button>
+                                <button class="bg-orange-600 text-white m-2 h-10 py-2 px-4 hover:bg-orange-800 rounded float-right"><i class="mr-4 fa fa-plus"></i>GPS</button>
+                            </div>
+                            <!-- add a line in the middle -->
+                         
+
+                        
+
+                            <button type="" class="flex items-center justify-center bg-gray-700 text-white w-12 h-12 rounded rounded-full py-2 px-4 hover:bg-gray-500 rounded float-right"><i class="text-2xl fa fa-plus"></i></button>
+                        </div>
+                <!-- add four buttons for reset form, preview, save draft and submit -->
+                <div class="my-5 flex justify-center">
+                  <button class="bg-red-500 text-white w-48 h-12 mx-auto py-2 px-4 hover:bg-red-700 rounded"><i class="mr-4 fa fa-refresh"></i>Reset Form</button>    
+                  <button class="bg-white text-gray-700 w-48 h-12 mx-auto py-2 px-4 hover:bg-gray-100 border border-gray-700 hover:border-gray-800 rounded"><i class="mr-4 fa fa-eye"></i>Preview</button>    
+                  <button class="bg-white text-gray-700 w-48 h-12 mx-auto py-2 px-4 hover:bg-gray-100 border border-gray-700 hover:border-gray-800 rounded"><i class="mr-4 fa fa-save"></i>Save Draft</button>    
+                  <button class="bg-gray-700 text-white w-48 h-12 mx-auto py-2 px-4 hover:bg-gray-900 rounded"><i class="mr-4 fa fa-paper-plane"></i>Submit</button>    
+                </div>
+           
+              </div>
+           
+            </div>
+          </main>
+        </div>
+      </div>
+      <script>
+        const headerDropdownBtn = document.getElementById('header-dropdown-btn');
+        const headerDropdown = document.getElementById('header-dropdown');
+        headerDropdownBtn.addEventListener('click', () => {
+          headerDropdown.classList.toggle('hidden');
+        });
+
+      </script>
+
+</body>
+</html>

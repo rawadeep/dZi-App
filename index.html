@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    <!-- center a logo on tailwindcss -->
+    <div class="flex justify-center">
+        <img src="/img/logo.svg" alt="logo" class="w-48 mt-12 mb-6">
+    </div>
+
+    <!-- center a form on tailwindcss -->
+    <div class="justify-center flex">
+        <!-- add a white card with 500px width -->
+        <div class="bg-white border rounded-lg shadow-lg p-10 w-full mx-5 md:w-1/3">
+            <!-- add a text called "login" as a header -->
+            <h3 class="text-3xl font-bold mb-10 text-center">Login</h3>
+            <!-- add a form with 2 input fields and a button -->
+            <form action="/login" method="POST">
+                <!-- @csrf -->
+                <div class="mb-5">
+                    <label for="email" class="block mb-2 text-sm font-bold text-gray-700">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Your email" class="border border-gray-400 p-2 w-full">
+                </div>
+                <div class="mb-2">
+                    <label for="password" class="block mb-2 text-sm font-bold text-gray-700">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Your password" class="border border-gray-400 p-2 w-full">
+                </div>
+                <!-- add a forgot password link -->
+                <div class="text-right">
+                    <a href="#" class="text-sm mb-4 inline-block text-blue-500 hover:text-blue-800">Forgot password?</a>
+                </div>
+                <!-- add a checkbox for remember me -->
+                <div class="mb-4 flex items-center">
+                    <input type="checkbox" name="remember" id="remember" class="mr-2 w-4 h-4 accent-red-600">
+                    <label for="remember" class="text-gray-700">Remember me</label>
+                </div>
+                <!-- add a login button -->
+                <button type="submit" class="bg-red-600 text-white w-full py-2 px-4 hover:bg-red-800 rounded">Login</button>
+                <!--  add text "Dont have an account? Register here" -->
+                <div class="text-center mt-4">
+                    <span class="text-sm">Don't have an account? </span>
+                    <a href="/register" class="text-blue-500 hover:text-blue-800 text-sm">Register here</a>
+                </div>
+
+            </form>
+           
+
+        </div>
+
+    </div>
+     <!-- add text "copyright 2023. dZi Foundation Nepal." -->
+     <div class="text-center mt-4 text-sm text-gray-500">
+        &copy; 2023. dZi Foundation Nepal.
+    </div>
+
+
+</body>
+</html>

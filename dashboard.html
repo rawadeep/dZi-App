@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form List</title>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- alpine js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js"></script>
+    <!-- font awesome cdn -->
+    <script src="https://use.fontawesome.com/1039f80695.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/circle.css">
+
+</head>
+<body class="bg-blue-50">
+    <div class="flex bg-gray-300" x-data="{ isSidebarExpanded: true}">
+        <aside class="flex flex-col text-gray-300 bg-gray-700 transition-all duration-300 ease-in-out" :class="isSidebarExpanded ? 'width-64' : 'width-20'" id="sidebar">
+          <a href="#" class="h-20 flex items-center px-4 bg-gray-700 hover:text-gray-100 hover:bg-opacity-50 focus:outline-none focus:text-gray-100 focus:bg-opacity-50 overflow-hidden">
+            <img src="img/Logo.svg" alt="Logo" class="h-16">
+          </a>
+          <nav class="p-4 space-y-2 font-medium">
+            <a href="#" class="flex items-center h-10 px-3 text-white bg-orange-600 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class = "fa fa-home"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-edit"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Create Form</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-list"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Form List</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-eye"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">View Data</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-laptop"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Report</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-user"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">User Management</span>
+            </a>
+            <a href="#" class="flex items-center h-10 px-3 hover:bg-orange-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-database"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Backup Database</span>
+            </a>
+            
+          </nav>
+          <div class="border-t border-gray-700 p-4 font-medium mt-auto">
+            <a href="#" class="flex items-center h-10 px-3 hover:text-gray-100 hover:bg-gray-600 hover:bg-opacity-25 rounded-lg transition-colors duration-150 ease-in-out focus:outline-none focus:shadow-outline">
+              <i class="fa fa-gear"></i>
+              <span class="ml-2 duration-300 ease-in-out" :class="isSidebarExpanded ? 'opacity-100' : 'opacity-0'">Settings</span>
+            </a>
+          </div>
+        </aside>
+        <div class="flex-1 flex flex-col ">
+          <header class="h-20 flex items-center px-6 bg-white justify-between">
+            <button class="p-2 -ml-2 mr-2" @click="isSidebarExpanded = !isSidebarExpanded" id="toggleBtn">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 transform" :class="isSidebarExpanded ? 'rotate-180' : 'rotate-0'">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="6" x2="14" y2="6" />
+                <line x1="4" y1="18" x2="14" y2="18" />
+                <path d="M4 12h17l-3 -3m0 6l3 -3" />
+              </svg>
+            </button>
+            <!-- add a search box -->
+            <div class="flex items-center">
+              <div class="relative">
+                <input type="text" class="bg-gray-100 w-96 h-10 px-5 pr-10 rounded-md text-sm focus:outline-none" placeholder="Search...">
+                <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div> 
+            <!-- add a dropdown containing logout and edit profile -->
+            <div class="relative">
+              <button class="flex items-center mr-0 border border-gray-300 rounded-full w-8 h-8 justify-center hover:bg-red-600 hover:text-white hover:cursor-pointer" id="header-dropdown-btn">
+                <i class="fa fa-user"></i>
+              </button>
+              <div class="absolute border border-gray-200 right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-10 hidden" id="header-dropdown">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-red-600 hover:text-white">Edit Profile</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-red-600 hover:text-white">Logout</a>
+                
+              </div>
+            </div>            
+          </header>
+          <main class="flex-1 p-6">
+            <div class="justify-center flex">
+              <div class="bg-white border rounded-lg shadow-lg my-5 mx-10 p-10 w-full">
+                <div class="bg-white border rounded-lg shadow-lg my-5 mx-10 p-10 min-h">
+                  <!-- {{-- Title --}} -->
+                  <h6 class="text-xl font-bold mb-2 text-left">Progress to Prosperity Scorecard</h6>
+          
+                  <!-- {{-- Dropdowns to select Fiscal Year, Province, District and Palika --}} -->
+                  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 ">
+                      <div class="mb-4">
+                          <label for="fiscalyear" class="block text-gray-600 text-sm mb-2">Fiscal Year</label>
+                          <select id="selectFy" name="fiscalyear"
+                              class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+                                  <option value="{{$item->id}}">{{$item->name}}</option>
+                          </select>
+                      </div>
+                      <div class="mb-4">
+                          <label for="status" class="block text-gray-600 text-sm mb-2">Province</label>
+                          <select id="selectProvince" name="province"
+                              class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+                              <option value="0">Select a Province</option>
+                                  <option value="{{$item['id']}}">{{$item['name']}}</option>
+                          </select>
+                      </div>
+                      <div id="district-wrapper" class="filter-options mb-4" style="display: none">
+                          <label for="district" class="block text-gray-600 text-sm mb-2">District</label>
+                          <select id="selectDistrict" name="district"
+                              class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+                              <option value="0">Select a District</option>
+                          </select>
+                      </div>
+                      <div id="municipality-wrapper" class="filter-options mb-4" style="display: none">
+                          <label for="municipality" class="block text-gray-600 text-sm mb-2">Municipality</label>
+                          <select id="selectMunicipality" name="municipality"
+                              class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+                              <option value="">Select a Municipality</option>
+                          </select>
+                      </div>
+                  </div>
+          
+                  <div class="slider-container mt-4">
+                      <div class="text-bold mr-1 slider-option active" id="province" onclick="slideTo('province')">Province</div>
+                      <div class="text-bold mr-1 slider-option" id="district" onclick="slideTo('district')">District</div>
+                      <div class="text-bold slider-option" id="municipality" onclick="slideTo('municipality')">Municipality</div>
+                  </div>
+                  
+                  <div class="map-container">
+                      <div id="province-map" class="map-wrappers p-3 mb-5 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 mt-4 active">
+                          <h5>Nepal Provinces</h5>
+                          <x-map.provinces :district=false />
+                      </div>
+                      <div id="district-map" class="map-wrappers p-3 mb-5 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 mt-4">
+                          <h5>Nepal Districts</h5>
+                          <div id="mapDistrict" style="display: none;"></div>
+                      </div>
+                      <div id="municipality-map" class="map-wrappers p-3 mb-5 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 mt-4">
+                          <h5>Nepal Municipalities</h5>
+                          <div id="map1" style="display: none;"></div>
+                      </div>
+                  </div>
+          
+                  <!-- {{-- Inclusive, Thriving, Resilient --}} -->
+                  <div id="scrollTo" class= "set-size grid grid-cols-1 md:grid-cols-3 mb-5 gap-4">
+          
+                      <div class="flex flex-col items-center cursor-pointer" id="indicator-1" onclick="toggleInfo('inclusive')">
+                          <h6 class="text-xl font-bold mb-2 text-center">Inclusive</h6>
+                          <div id="circleprogress1" data-prevclass="" class="c100 green">
+                              <span>0%</span>
+                              <div class="slice">
+                                  <div class="bar"></div>
+                                  <div class="fill"></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('thriving')">
+                          <h6 class="text-xl font-bold mb-2 text-center">Thriving</h6>
+                          <div id="circleprogress2" data-prevclass="" class="c100">
+                              <span>0%</span>
+                              <div class="slice">
+                                  <div class="bar"></div>
+                                  <div class="fill"></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('resilient')">
+                          <h6 class="text-xl font-bold mb-2 text-center">Resilient</h6>
+                          <div id="circleprogress3" data-prevclass="" class="c100 orange">
+                              <span>0%</span>
+                              <div class="slice">
+                                  <div class="bar"></div>
+                                  <div class="fill"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- {{-- Inclusive indicators and components --}} -->
+                  <div class="information" id="inclusive">
+                      <div class="p-3 mb-5 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 relative">
+                          <span class="absolute" style="top: 10px;color: #374151;">Inclusive</span>
+                          <div class="w-full md:w-1/2 flex justify-between items-center set-size-2">
+                              <h6 class="text-xl font-bold mb-2 text-center mr-5">Gender and Social Inclusion</h6>
+                              <div id="circlecomponent1" data-prevclass="" class="c100 green">
+                                  <span>0%</span>
+                                  <div class="slice">
+                                      <div class="bar"></div>
+                                      <div class="fill"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/2 set-size-3 flex flex-col">
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Policy, plan & integration</h6>
+                                  <div id="circlesubcomponent1" data-prevclass="" class="c100 small green">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Budget & source</h6>
+                                  <div id="circlesubcomponent2" data-prevclass="" class="c100 small green">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5" style="font-size: 17px;text-align: left;">Mobilization strategy & mechanism</h6>
+                                  <div id="circlesubcomponent3" data-prevclass="" class="c100 small green">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="p-3 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 relative">
+                          <span class="absolute" style="top: 10px;color: #374151;">Inclusive</span>
+                          <div class="w-full md:w-1/2 flex justify-between items-center set-size-2">
+                              <h6 class="text-xl font-bold mb-2 text-center mr-5">Community Action</h6>
+                              <div id="circlecomponent2" data-prevclass="" class="c100 green">
+                                  <span>0%</span>
+                                  <div class="slice">
+                                      <div class="bar"></div>
+                                      <div class="fill"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/2 set-size-3 flex flex-col">
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">TDO guidelines & operation</h6>
+                                  <div id="circlesubcomponent4" data-prevclass="" class="c100 small green">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Voice in community affairs</h6>
+                                  <div id="circlesubcomponent5" data-prevclass="" class="c100 small green">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5" style="text-align: left;">Role in local community development
+                                  </h6>
+                                  <div id="circlesubcomponent6" data-prevclass="" class="c100 small green">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          
+                  <!-- {{-- Thriving indicators and components --}} -->
+                  <div class="information" id= "thriving" style="display:none;">
+                      <div class="p-3 mb-5 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 relative">
+                          <span class="absolute" style="top: 10px;color: #374151;">Thriving</span>
+                          <div class="w-full md:w-1/2 flex justify-between items-center set-size-2">
+                              <h6 class="text-xl font-bold mb-2 text-center mr-5">Poverty Reduction Policy</h6>
+                              <div id="circlecomponent3" data-prevclass="" class="c100 blue">
+                                  <span>0%</span>
+                                  <div class="slice">
+                                      <div class="bar"></div>
+                                      <div class="fill"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/2 set-size-3 flex flex-col">
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Local standard of poverty</h6>
+                                  <div id="circlesubcomponent7" data-prevclass="" class="c100 small blue">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">PR Policy, plan, & integration</h6>
+                                  <div id="circlesubcomponent8" data-prevclass="" class="c100 small blue">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5" style="text-align: left;">Mobilization Strategy Mechanism</h6>
+                                  <div id="circlesubcomponent9" data-prevclass="" class="c100 small blue">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="p-3 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 relative">
+                          <span class="absolute" style="top: 10px;color: #374151;">Thriving</span>
+                          <div class="w-full md:w-1/2 flex justify-between items-center set-size-2">
+                              <h6 class="text-xl font-bold mb-2 text-center mr-5">Poverty-affected Households</h6>
+                              <div id="circlecomponent4" data-prevclass="" class="c100 blue">
+                                  <span>0%</span>
+                                  <div class="slice">
+                                      <div class="bar"></div>
+                                      <div class="fill"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/2 set-size-3 flex flex-col">
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">HH identification & profile</h6>
+                                  <div id="circlesubcomponent10" data-prevclass="" class="c100 small blue">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Access to public services</h6>
+                                  <div id="circlesubcomponent11" data-prevclass="" class="c100 small blue">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl p-3">
+                                  <h6 class="text-xl font-bold mb-2 mr-2" style="font-size: 18px;text-align: left;">Local Community Development</h6>
+                                  <div id="circlesubcomponent12" data-prevclass="" class="c100 small blue">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          
+                  <!-- {{-- Resilient indicators and components --}} -->
+                  <div class="information" id="resilient" style="display:none;">
+                      <div class="p-3 mb-5 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 relative">
+                          <span class="absolute" style="top: 10px;color: #374151;">Resilient</span>
+                          <div class="w-full md:w-1/2 flex justify-between items-center set-size-2">
+                              <h6 class="text-xl font-bold mb-2 text-center mr-5">Economic Development</h6>
+                              <div id="circlecomponent5" data-prevclass="" class="c100 orange">
+                                  <span>0%</span>
+                                  <div class="slice">
+                                      <div class="bar"></div>
+                                      <div class="fill"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/2 set-size-3 flex flex-col">
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">LED policy, plan & integration</h6>
+                                  <div id="circlesubcomponent13" data-prevclass="" class="c100 small orange">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Implementation strategy & mechanism
+                                  </h6>
+                                  <div id="circlesubcomponent14" data-prevclass="" class="c100 small orange">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Benefit to poor and excluded groups
+                                  </h6>
+                                  <div id="circlesubcomponent15" data-prevclass="" class="c100 small orange">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="p-3 flex flex-wrap items-center justify-between border rounded-xl border-grey-500 relative">
+                          <span class="absolute" style="top: 10px;color: #374151;">Resilient</span>
+                          <div class="w-full md:w-1/2 flex justify-between items-center set-size-2">
+                              <h6 class="text-xl font-bold mb-2 text-center mr-5">Disaster & Climate Change</h6>
+                              <div id="circlecomponent6" data-prevclass="" class="c100 orange">
+                                  <span>0%</span>
+                                  <div class="slice">
+                                      <div class="bar"></div>
+                                      <div class="fill"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/2 set-size-3 flex flex-col">
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">DRR and CC policy, plan & integration
+                                  </h6>
+                                  <div id="circlesubcomponent16" data-prevclass="" class="c100 small orange">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl mb-2 p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Implementation strategy & mechanism
+                                  </h6>
+                                  <div id="circlesubcomponent17" data-prevclass="" class="c100 small orange">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="flex items-center justify-between border border-grey-500 rounded-xl p-3">
+                                  <h6 class="text-xl font-bold mb-2 text-center mr-5">Benefit to poor and excluded groups
+                                  </h6>
+                                  <div id="circlesubcomponent18" data-prevclass="" class="c100 small orange">
+                                      <span>0%</span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          
+              </div>
+                  
+
+
+              </div>
+            </div>       
+                
+            </main>
+        </div>
+      </div>
+      <script>
+        const headerDropdownBtn = document.getElementById('header-dropdown-btn');
+        const headerDropdown = document.getElementById('header-dropdown');
+        headerDropdownBtn.addEventListener('click', () => {
+          headerDropdown.classList.toggle('hidden');
+        });
+
+      </script>
+
+</body>
+</html>
