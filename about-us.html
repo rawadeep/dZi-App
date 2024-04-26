@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>About Us</title>
   <!-- tailwind cdn -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- alpine js cdn -->
@@ -115,112 +115,95 @@
           </div>
         </div>
       </header>
+      <!-- banner image -->
+      <div class="bg-cover bg-center bg-no-repeat h-48" style="background-image: url('img/banner.jpg')">
+        <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
+          <h1 class="text-white text-4xl font-bold">About Us</h1>
+        </div>
+      </div>
+      <!-- main -->
       <main class="flex-1 bg-zinc-100 p-6">
         <div class="justify-center flex">
           <div class="bg-white border rounded-lg shadow-lg my-5 mx-10 p-10 w-full">
             <!-- {{-- Title --}} -->
-            <h6 class="text-xl font-bold mb-2 text-left">Progress to Prosperity Scorecard</h6>
-            <!-- Description -->
-            <p class="text-gray-600">The Progress to Prosperity Scorecard (PtPS) intertwines different methods 
-              for tracking the progress against three major indicators of shared prosperity: thriving, inclusive, 
-              and resilient across Nepal. 
-            </p>
-            <div class="grid mt-5 grid-cols-1 md:grid-cols-6 gap-4">
-              <div class="flex items-center justify-center col-span-6 md:col-span-1">
-                
-                <!-- {{-- Inclusive, Thriving, Resilient --}} -->
-                  <div id="scrollTo" class="set-size grid grid-cols-1 mb-5 gap-4">
-
-                    <div class="flex flex-col items-center justify-center cursor-pointer" id="indicator-1" onclick="toggleInfo('inclusive')">
-                      <h6 class="text-xl font-bold mb-2 text-center">Inclusive</h6>
-                      <div id="circleprogress1" data-prevclass="" class="c100 blue">
-                        <span>0%</span>
-                        <div class="slice">
-                          <div class="bar"></div>
-                          <div class="fill"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('thriving')">
-                      <h6 class="text-xl font-bold mb-2 text-center">Thriving</h6>
-                      <div id="circleprogress2" data-prevclass="" class="c100 orange">
-                        <span>0%</span>
-                        <div class="slice">
-                          <div class="bar"></div>
-                          <div class="fill"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('resilient')">
-                      <h6 class="text-xl font-bold mb-2 text-center">Resilient</h6>
-                      <div id="circleprogress3" data-prevclass="" class="c100 green">
-                        <span>0%</span>
-                        <div class="slice">
-                          <div class="bar"></div>
-                          <div class="fill"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <div class="col-span-6 md:col-span-5">
-                             <!-- {{-- Dropdowns to select Fiscal Year, Province, District and Palika --}} -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 ">
-                  <div class="mb-4">
-                    <label for="fiscalyear" class="block text-gray-600 text-sm mb-2">Fiscal Year</label>
-                    <select id="selectFy" name="fiscalyear"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="{{$item->id}}">{{$item->name}}</option>
-                    </select>
-                  </div>
-                  <div class="mb-4">
-                    <label for="status" class="block text-gray-600 text-sm mb-2">Province</label>
-                    <select id="selectProvince" name="province"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="0">Select a Province</option>
-                      <option value="{{$item['id']}}">{{$item['name']}}</option>
-                    </select>
-                  </div>
-                  <div id="district-wrapper" class="filter-options mb-4" style="display: none">
-                    <label for="district" class="block text-gray-600 text-sm mb-2">District</label>
-                    <select id="selectDistrict" name="district"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="0">Select a District</option>
-                    </select>
-                  </div>
-                  <div id="municipality-wrapper" class="filter-options mb-4" style="display: none">
-                    <label for="municipality" class="block text-gray-600 text-sm mb-2">Municipality</label>
-                    <select id="selectMunicipality" name="municipality"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="">Select a Municipality</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="slider-container mt-4">
-                  <div class="text-bold mr-1 slider-option active" id="province" onclick="slideTo('province')">Province
-                  </div>
-                  <div class="text-bold mr-1 slider-option" id="district" onclick="slideTo('district')">District</div>
-                  <div class="text-bold slider-option" id="municipality" onclick="slideTo('municipality')">Municipality
-                  </div>
-                </div>
-
-                <div class="map-container">
-                  <img src="img/map.jpg" alt="" class="img-fluid">
-                </div>
+            <h6 class="text-xl font-bold mb-2 text-left">About Nepal</h6>
+            <div class="grid grid-cols-8 gap-4 bg-[length:1230px_450px] bg-right-bottom bg-no-repeat" style="background-image:url('img/bg.png')">
+              <div class="bg-opacity-70 bg-white p-3 col-span-8 md:col-span-3">
+                <p class="text-justify">Nepal, home to diverse landscapes and cultures, presents a promising arena for holistic community development. With its Gross Domestic Product (GDP) up to US$ 40.8 billion in 2022 from US$4.4 billion in 1995, Nepal aims to graduate from being a Least Developed Country (LDC) by 2026. 
+                  <br>
+                  <br>Despite the focus on poverty alleviation in all of Nepal’s periodic plans since 2002, the recent growth and development in the country have not seen a significant decrease in the disparity of development gains and empowerment status between geographical regions and social groups. Absolute poverty only reduced to 18.7% in 2022 from 41.7% in 1995, challenges like limited access to education and healthcare and gender disparity remain. The graduation from LDC, thus, ignores the developmental realities of many citizens of Nepal. 
+                  <br>
+                  <br>After implementing projects across the Himalayan region during its early years, dZi narrowed its focus to Eastern Nepal in 2006, just as the country’s decade-long civil war was ending. 
+                  </p>
               </div>
-
-
-
+              <div class="bg-opacity-70 bg-white p-3 col-span-8 md:col-span-3">
+                <p class="text-justify">Villages in the high, hilly region were remarkably isolated – historically, the area had minimal government presence and saw few development initiatives. Despite the proximity to the wealthy Everest valley (Khumbu), the eastern hills in Nepal largely lacked access to water, food, education, and essential infrastructure. Its diverse communities of historically marginalized and excluded ethnic groups faced multidimensional poverty and limited access to markets, contributing to high poverty rates, vulnerability, and massive out-migration.
+                  <br>
+                  <br>Additionally, limited infrastructure, reliance on remittances, vulnerability to climate change, and political instability threaten sustaining any progress made toward prosperity. Thus, the national ambition of poverty alleviation cannot be achieved unless the approach shifts from focusing on interventions only aimed at the poor to ones addressing the structural roots of extreme poverty.
+                </p>
+              </div>
             </div>
-            <!-- A button that says 'How we measure it' -->
-            <div class="flex justify-center mt-5">
-              <button
-                class="bg-yellow-400 hover:bg-yellow-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">How
-                we measure it</button>
+            <!-- bold title "Our Mission and Vision" in a teal background -->
+            <div class="bg-teal-500 py-4 mt-5">
+              <h6 class="text-3xl text-white text-center uppercase mb-2">Our Mission & Vision</h6>
             </div>
-
-
+            <!-- short mission and vision text -->
+            <div class="bg-zinc-200 p-3">
+              <p class="text-center text-2xl">dZi partners with communities in Nepal to achieve shared prosperity by ensuring access to basic needs, catalyzing inclusive economic growth, and creating an environment for lasting change.
+                <br>
+                <br><span class="text-2xl text-teal-500">We envision a world of thriving, inclusive, and resilient communities that have achieved shared prosperity on their terms.</span>
+              </p>
+            </div>
+            <!-- bold title "our Values" in a white background -->
+            <div class="bg-white py-4">
+              <h6 class="text-3xl text-teal-500 text-center uppercase mb-2">Our Values</h6>
+            </div>
+            <!-- 2 column list of our values with a rounded image on top, followed by a title, and a short text -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div class="p-3">
+                <div class="px-32 py-5">
+                  <img src="img/values-1.jpeg" alt="Value 4" class="rounded-full w-full h-auto object-cover">
+                </div>
+                <h6 class="text-2xl text-center text-teal-500 font-bold mt-2">Responsibility</h6>
+                <p class="text-center">We have an environmental and social responsibility to foster positive and proactive change in all that we do. We are all responsible for our actions, behaviors, and results.</p>
+              </div>
+              <div class="p-3">
+                <div class="px-32 py-5">
+                  <img src="img/values-2.jpeg" alt="Value 4" class="rounded-full w-full h-auto object-cover">
+                </div>
+                <h6 class="text-2xl text-center text-teal-500 font-bold mt-2">Partnership</h6>
+                <p class="text-center">Communication, connection, and collaboration are at our core to make a real difference in the places where we work with the people we care about.</p>
+              </div>
+              <div class="p-3">
+                <div class="px-32 py-5">
+                  <img src="img/values-3.jpg" alt="Value 4" class="rounded-full w-full h-auto object-cover">
+                </div>
+                <h6 class="text-2xl text-center text-teal-500 font-bold mt-2">Authenticity</h6>
+                <p class="text-center">To be inspired by and inspiring; we show up completely, appreciate what is, give credit where it's due, and create and celebrate from the heart.</p>
+              </div>
+              <div class="p-3">
+                <div class="px-32 py-5">
+                  <img src="img/values-4.jpg" alt="Value 4" class="rounded-full w-full h-auto object-cover">
+                </div>
+                <h6 class="text-2xl text-center text-teal-500 font-bold mt-2">Integrity</h6>
+                <p class="text-center">With openness and accountability, we are true to ourselves, to our partners, to our mission, and to our process.</p>
+              </div>
+              <div class="p-3">
+                <div class="px-32 py-5">
+                  <img src="img/values-5.jpg" alt="Value 4" class="rounded-full w-full h-auto object-cover">
+                </div>
+                <h6 class="text-2xl text-center text-teal-500 font-bold mt-2">Growth Culture</h6>
+                <p class="text-center">We create a safe environment grounding everyone in a desire to grow, innovate, and get outside of our comfort zones. As a team, we listen and learn, we are curious and not afraid to fail, and we continue to challenge the status quo.</p>
+              </div>
+              <div class="p-3">
+                <div class="px-32 py-5">
+                  <img src="img/values-6.jpg" alt="Value 4" class="rounded-full w-full h-auto object-cover">
+                </div>
+                <h6 class="text-2xl text-center text-teal-500 font-bold mt-2">Equity</h6>
+                <p class="text-center">We strive to amplify everyone's voice,
+                  to make each other feel heard, and to honor each other's cultures and values in everything we do.</p>
+              </div>
+            </div>
           </div>
         </div>
 

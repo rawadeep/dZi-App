@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>How we measure it</title>
   <!-- tailwind cdn -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- alpine js cdn -->
@@ -119,108 +119,58 @@
         <div class="justify-center flex">
           <div class="bg-white border rounded-lg shadow-lg my-5 mx-10 p-10 w-full">
             <!-- {{-- Title --}} -->
-            <h6 class="text-xl font-bold mb-2 text-left">Progress to Prosperity Scorecard</h6>
-            <!-- Description -->
-            <p class="text-gray-600">The Progress to Prosperity Scorecard (PtPS) intertwines different methods 
-              for tracking the progress against three major indicators of shared prosperity: thriving, inclusive, 
-              and resilient across Nepal. 
-            </p>
-            <div class="grid mt-5 grid-cols-1 md:grid-cols-6 gap-4">
-              <div class="flex items-center justify-center col-span-6 md:col-span-1">
-                
-                <!-- {{-- Inclusive, Thriving, Resilient --}} -->
-                  <div id="scrollTo" class="set-size grid grid-cols-1 mb-5 gap-4">
-
-                    <div class="flex flex-col items-center justify-center cursor-pointer" id="indicator-1" onclick="toggleInfo('inclusive')">
-                      <h6 class="text-xl font-bold mb-2 text-center">Inclusive</h6>
-                      <div id="circleprogress1" data-prevclass="" class="c100 blue">
-                        <span>0%</span>
-                        <div class="slice">
-                          <div class="bar"></div>
-                          <div class="fill"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('thriving')">
-                      <h6 class="text-xl font-bold mb-2 text-center">Thriving</h6>
-                      <div id="circleprogress2" data-prevclass="" class="c100 orange">
-                        <span>0%</span>
-                        <div class="slice">
-                          <div class="bar"></div>
-                          <div class="fill"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('resilient')">
-                      <h6 class="text-xl font-bold mb-2 text-center">Resilient</h6>
-                      <div id="circleprogress3" data-prevclass="" class="c100 green">
-                        <span>0%</span>
-                        <div class="slice">
-                          <div class="bar"></div>
-                          <div class="fill"></div>
-                        </div>
-                      </div>
-                    </div>
+            <h6 class="text-xl font-bold mb-2 text-left">How we measure it</h6>
+            <div class="grid flex items-top grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="flex flex-col items-center justify-center cursor-pointer" id="indicator-1" onclick="toggleInfo('inclusive')">
+                <div id="circleprogress1" data-prevclass="" class="c100 blue">
+                  <span>0%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
                   </div>
                 </div>
-              <div class="col-span-6 md:col-span-5">
-                             <!-- {{-- Dropdowns to select Fiscal Year, Province, District and Palika --}} -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 ">
-                  <div class="mb-4">
-                    <label for="fiscalyear" class="block text-gray-600 text-sm mb-2">Fiscal Year</label>
-                    <select id="selectFy" name="fiscalyear"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="{{$item->id}}">{{$item->name}}</option>
-                    </select>
-                  </div>
-                  <div class="mb-4">
-                    <label for="status" class="block text-gray-600 text-sm mb-2">Province</label>
-                    <select id="selectProvince" name="province"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="0">Select a Province</option>
-                      <option value="{{$item['id']}}">{{$item['name']}}</option>
-                    </select>
-                  </div>
-                  <div id="district-wrapper" class="filter-options mb-4" style="display: none">
-                    <label for="district" class="block text-gray-600 text-sm mb-2">District</label>
-                    <select id="selectDistrict" name="district"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="0">Select a District</option>
-                    </select>
-                  </div>
-                  <div id="municipality-wrapper" class="filter-options mb-4" style="display: none">
-                    <label for="municipality" class="block text-gray-600 text-sm mb-2">Municipality</label>
-                    <select id="selectMunicipality" name="municipality"
-                      class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
-                      <option value="">Select a Municipality</option>
-                    </select>
-                  </div>
+                <div class="bg-blue-500 text-white w-full py-3 text-center">
+                  <p class="text-xl font-bold">Inclusive</p>
                 </div>
-
-                <div class="slider-container mt-4">
-                  <div class="text-bold mr-1 slider-option active" id="province" onclick="slideTo('province')">Province
-                  </div>
-                  <div class="text-bold mr-1 slider-option" id="district" onclick="slideTo('district')">District</div>
-                  <div class="text-bold slider-option" id="municipality" onclick="slideTo('municipality')">Municipality
-                  </div>
-                </div>
-
-                <div class="map-container">
-                  <img src="img/map.jpg" alt="" class="img-fluid">
-                </div>
+                <!-- description -->
+                <p class="text-gray-600 text-center">Increased % of households with access to public services regardless of the differences in demography, ethnicity, gender, disability, and economic status.</p>
               </div>
-
-
-
+              <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('thriving')">
+                <div id="circleprogress2" data-prevclass="" class="c100 orange">
+                  <span>0%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="bg-orange-500 text-white w-full py-3 text-center">
+                  <p class="text-xl font-bold">Thriving</p>
+                </div>
+                <!-- description -->
+                <p class="text-gray-600 text-center">Increased % of households with improved livelihood opportunities and economic productivity. </p>
+              </div>
+              <div class="flex flex-col items-center cursor-pointer" onclick="toggleInfo('resilient')">
+                <div id="circleprogress3" data-prevclass="" class="c100 green">
+                  <span>0%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="bg-green-500 text-white w-full py-3 text-center">
+                  <p class="text-xl font-bold">Resilient</p>
+                </div>
+                <!-- description -->
+                <p class="text-gray-600 text-center">Increased % of households with improved livelihood opportunities and economic productivity. </p>
+              </div>
             </div>
-            <!-- A button that says 'How we measure it' -->
-            <div class="flex justify-center mt-5">
-              <button
-                class="bg-yellow-400 hover:bg-yellow-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">How
-                we measure it</button>
+            <div class="bg-gray-200 my-5 py-3 px-2">
+              <p class="text-gray-600 text-center"><span class="font-bold">Impact Goal: </span> By 2029, proving a sustainable and replicable model of partnership
+              that lifts one municipality out of poverty and into shared prosperity on local terms.
+              </p>
             </div>
-
-
+            <!-- Image for indicators details -->
+            <img src="img/indicators-details.jpg" alt="">
           </div>
         </div>
 
