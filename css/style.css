@@ -300,3 +300,9 @@ html {
   background-color: rgb(234, 88, 12);
   color: #fff;
 }
+/* ====================== */
+/* Sidebar Styling */
+/* ====================== */
+.hidden{
+    display:none;
+}
